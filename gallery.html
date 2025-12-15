@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Recent Works — Cassiel Flores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root{
+      --bg:#f4f5f5;
+      --muted:#6b7376;
+      --accent:#b3121b;
+      --accent-2:#1f5960;
+      --card-bg:rgba(255,255,255,0.85);
+      --shadow: 0 10px 30px rgba(15,20,25,0.08);
+      --radius:14px;
+      --max-width:1200px;
+      --container-padding:2rem;
+      --transition:300ms cubic-bezier(.2,.9,.3,1);
+    }
+    *{ box-sizing:border-box }
+    img, picture, video { max-width:100%; height:auto; display:block; }
+    
+    /* HIDE SCROLLBAR - WORKS ON ALL BROWSERS */
+    html,body{ 
+      height:100%; 
+      margin:0; 
+      font-family: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; 
+      background: url('https://media.tenor.com/wWvWe-ipVeIAAAAM/white-background.gif') center/cover fixed; 
+      color:#14202b; 
+      overflow-x:hidden; 
+      /* Firefox */
+      scrollbar-width: none; 
+      /* Chrome, Safari, Edge */
+      -ms-overflow-style: none;
+    }
+    /* Chrome, Safari, Edge */
+    html::-webkit-scrollbar, body::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+    /* Ensure no scrollbar on html element */
+    html {
+      overflow-y: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    html::-webkit-scrollbar {
+      display: none;
+    }
+
+    .container{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:var(--container-padding);
+    }
+    .site-header{
+      background: transparent;
+      position:fixed;
+      left:0;
+      right:0;
+      top:0;
+      z-index:9999;
+      backdrop-filter: blur(6px);
+      box-shadow: none;
+      transform: translateY(0);
+      transition: transform 320ms cubic-bezier(.2,.9,.3,1), box-shadow 320ms ease;
+      will-change: transform;
+    }
+    /* spacer placed after header to prevent content jump */
+    .header-offset{height:74px;pointer-events:none}
+    .site-header.header-hidden{ transform: translateY(-110%); box-shadow: none }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+      text-decoration:none;
+      color:#0e2b2e;
+      font-weight:700;
+    }
+    .brand-dot{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:48px;height:48px;border-radius:50%;
+      background: var(--accent);
+      box-shadow:0 8px 30px rgba(179,18,27,0.18);
+      margin-right:10px;
+      font-size:20px;
+      border: 2px solid rgba(255,255,255,0.12);
+    }
+    .brand-dot i{ color:#fff; }
+    .brand-name{
+      font-family: "Montserrat", serif;
+      letter-spacing: .03em;
+    }
+    .main-nav ul{
+      list-style:none;
+      margin:0;padding:0;display:flex;gap:1.25rem;
+    }
+    .main-nav a{
+      text-decoration:none;
+      color:var(--accent-2);
+      font-weight:600;
+      transition: color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+      padding: .35rem .6rem;
+      border-radius:999px;
+      display:inline-block;
+      position:relative;
+      background:transparent;
+      box-shadow:none;
+    }
+    .main-nav a:hover,
+    .main-nav a:focus{
+      color:#fff;
+      background: linear-gradient(180deg, rgba(179,18,27,0.98), rgba(179,18,27,0.92));
+      box-shadow: 0 6px 18px rgba(179,18,27,0.10);
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .main-nav a.active{
+      color: #fff;
+      background: linear-gradient(180deg, rgba(179,18,27,0.98), rgba(153,14,21,0.95));
+      padding: .32rem .6rem;
+      border-radius:999px;
+      box-shadow: 0 8px 20px rgba(179,18,27,0.12);
+      transform: translateY(-1px);
+    }
+    .menu-toggle{
+      display:none;
+      border:0;background:transparent;font-size:1.05rem;color:var(--accent-2);
+    }
+    .mobile-nav{ list-style:none; padding:0.5rem 0; display:block; max-height:0; overflow:hidden; opacity:0; transition: max-height 360ms cubic-bezier(.2,.9,.3,1), opacity 220ms ease; }
+    .mobile-nav.open{ opacity:1; max-height: 600px; }
+    .mobile-nav.container{ padding-left:var(--container-padding); padding-right:var(--container-padding); }
+    .mobile-nav ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.5rem }
+    .mobile-nav a{ text-decoration:none; color:var(--accent-2); font-weight:600; display:block; padding:0.5rem 0 }
+
+    .hero{ text-align:center; padding:60px 32px 40px; }
+    .hero h1{ font-size:52px; font-weight:700; margin:0 0 12px; line-height:1.1; max-width:1000px; margin-left:auto; margin-right:auto; color:#b3121b; font-family: "Montserrat", serif; }
+    .recent-works{ color:var(--accent); font-size:13px; font-weight:600; letter-spacing:.1em; margin-bottom:24px; display:flex; align-items:center; justify-content:center; gap:8px; }
+    .recent-works::before{ content:'⚡'; font-size:16px }
+
+    .project-card{ border-radius:18px; overflow:hidden; box-shadow: 0 18px 50px rgba(2,8,14,0.45); background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); }
+    .project-card img{ width:100%; height:68%; object-fit:cover; display:block; }
+    .project-overlay{ display:none; }
+    .project-meta{ color:#fff; text-align:center; padding:6px 12px 8px; display:block }
+    .project-meta h3{ margin:0; font-size:20px; letter-spacing:0.04em; text-transform:uppercase; font-weight:800; color:#fff; text-shadow:0 6px 20px rgba(0,0,0,0.6) }
+    .project-meta p{ margin:.35rem 0 0; font-size:0.95rem; color:rgba(255,255,255,0.9); opacity:0.95 }
+
+    .gallery{ max-width:100%; margin:0; padding:60px 0; display:flex; flex-direction:column; gap:40px; overflow:hidden; align-items:center; justify-content:center; }
+    
+    .gallery-row{ position:relative; width:100%; height:380px; display:flex; align-items:center; justify-content:center; gap:5px; overflow:hidden; }
+    .gallery-row.reverse{ display:none; }
+    
+    .gallery-row .project-card{ width:clamp(200px,22vw,360px); aspect-ratio:11/18; transition: transform 520ms cubic-bezier(.2,.9,.3,1), opacity 420ms ease, box-shadow 420ms ease; flex-shrink:0; cursor:grab; }
+    .gallery-row .project-card:active{ cursor:grabbing; }
+    
+    @media (max-width:1000px){
+      .gallery-row .project-card{ width:clamp(240px,30vw,360px); }
+      .gallery-row{ height:420px; }
+    }
+    @media (max-width:700px){
+      .gallery-row .project-card{ width:clamp(200px,44vw,280px); }
+      .gallery-row{ height:350px; }
+      .gallery{ padding:40px 0; }
+    }
+
+    .lightbox{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.92); z-index:12000; padding:20px }
+    .lightbox.open{ display:flex }
+    .lightbox img{ max-width:92%; max-height:90vh; border-radius:6px; object-fit:contain }
+
+    /* Shorts slider styles - NO SCROLLBAR */
+    .shorts-slider {
+      width: 100%;
+      overflow: hidden;
+      padding: 60px 0;
+    }
+    .track {
+      display: flex;
+      gap: 20px;
+      animation: scroll 18s linear infinite;
+    }
+    .card {
+      min-width: 240px;
+      height: 300px;
+      background: linear-gradient(145deg, #b3121b, #7a0d12);
+      color: white;
+      font-weight: 700;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      transition: transform 0.4s ease;
+      overflow: hidden;
+    }
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Center scale effect */
+    .track:hover .card {
+      transform: scale(0.9);
+    }
+    .track .card:hover {
+      transform: scale(1.15);
+    }
+    /* Infinite scroll animation */
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    a:focus, button:focus { outline:3px solid rgba(15,80,80,0.12); outline-offset:3px; border-radius:6px }
+    
+    /* Mobile responsive */
+    @media (max-width:768px) {
+      .main-nav { display: none; }
+      .menu-toggle { display: block !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html#home">
+        <span class="brand-dot" aria-hidden="true"><i class="fa-solid fa-moon"></i></span>
+        <span class="brand-name">CASSIEL</span>
+      </a>
+
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About Me</a></li>
+          <li><a href="index.html#Experience" data-slide="0">Experience</a></li>
+          <li><a href="index.html#certificates" data-cert="0">Certificates</a></li>
+          <li><a href="#" id="gallery-link" class="active">Gallery</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="header-offset" aria-hidden="true"></div>
+
+  <!-- Mobile navigation (hidden on wide screens) -->
+  <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+    <div class="container">
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About Me</a></li>
+        <li><a href="index.html#Experience" data-slide="0">Experience</a></li>
+        <li><a href="index.html#certificates" data-cert="0">Certificates</a></li>
+        <li><a href="#" id="mobile-gallery-link">Gallery</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="hero">
+    <h1>EDUCATIONAL TOUR GALLERY</h1>
+  </section>
+
+  <main class="gallery">
+    <div class="shorts-slider">
+      <div class="track">
+        <!-- Replace text with images; use placeholder URLs or your own -->
+        <div class="card"><img src="gallery/1.jpeg" alt="UP IT Cebu"></div>
+        <div class="card"><img src="gallery/2.JPG" alt="Dynata"></div>
+        <div class="card"><img src="gallery/3.JPG" alt="Rivant IT"></div>
+        <div class="card"><img src="gallery/7.JPG" alt="WATTS"></div>
+        <div class="card"><img src="gallery/5.jpeg" alt="MATA"></div>
+        <div class="card"><img src="gallery/8.png" alt="MATA"></div>
+        <div class="card"><img src="gallery/9.png" alt="MATA"></div>
+        <div class="card"><img src="gallery/10.png" alt="MATA"></div>
+        <div class="card"><img src="gallery/11.png" alt="MATA"></div>
+        <div class="card"><img src="gallery/12.png" alt="MATA"></div>
+        <div class="card"><img src="gallery/13.png" alt="MATA"></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="card"><img src="gallery/1.jpeg" alt="UP IT Cebu"></div>
+        <div class="card"><img src="gallery/2.JPG" alt="Dynata"></div>
+        <div class="card"><img src="gallery/3.JPG" alt="Rivant IT"></div>
+        <div class="card"><img src="gallery/7.JPG" alt="WATTS"></div>
+        <div class="card"><img src="gallery/5.jpeg" alt="MATA"></div>
+        <div class="card"><img src="gallery/8.png" alt="MATA"></div>
+        <div class="card"><img src="gallery/9.png" alt="MATA"></div>
+        <div class="card"><img src="gallery/10.png" alt="MATA"></div>
+        <div class="card"><img src="gallery/11.png" alt="MATA"></div>
+        <div class="card"><img src="gallery/12.png" alt="MATA"></div>
+        <div class="card"><img src="gallery/13.png" alt="MATA"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="lb" class="lightbox" role="dialog" aria-hidden="true">
+    <img src="" alt="" />
+  </div>
+
+  <script>
+    // Navbar scroll hide/show functionality
+    let lastScrollTop = 0;
+    const header = document.querySelector('.site-header');
+    
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        header.classList.add('header-hidden');
+      } else {
+        header.classList.remove('header-hidden');
+      }
+      
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+  </script>
+</body>
+</html>
+ 

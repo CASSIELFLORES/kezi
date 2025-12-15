@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cassiel Flores — Portfolio (Preview)</title>
+
+  <!-- Google Fonts: Poppins (body) + Montserrat (headings) + Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+      :root{
+        --bg:#f4f5f5;
+        --muted:#6b7376;
+        --accent:#b3121b;
+        --accent-2:#1f5960;
+        --card-bg:rgba(255,255,255,0.85);
+        --shadow: 0 10px 30px rgba(15,20,25,0.08);
+        --radius:14px;
+        --max-width:1200px;
+        --container-padding:2rem;
+        --container-padding-sm:1rem;
+        --transition:300ms cubic-bezier(.2,.9,.3,1);
+      }
+      *{box-sizing:border-box}
+      img, picture, video { max-width:100%; height:auto; display:block; }
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        color:#14202b;
+        background: url('https://media.tenor.com/wWvWe-ipVeIAAAAM/white-background.gif') center/cover fixed;
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+        line-height:1.5;
+      }
+      .container{
+        max-width:var(--max-width);
+        margin:0 auto;
+        padding:var(--container-padding);
+      }
+      @media (max-width:700px){
+        .container{ padding:var(--container-padding-sm); }
+      }
+      .hero .container{
+        padding-left:var(--container-padding);
+      }
+      .site-header{
+        background:transparent;
+        position:sticky;
+        top:0;
+        z-index:60;
+        backdrop-filter: blur(6px);
+        transition: transform 320ms cubic-bezier(.2,.9,.3,1), box-shadow 320ms ease;
+      }
+      .header-inner{
+        display:flex;
+        align-items:center;
+        gap:1rem;
+        justify-content:space-between;
+      }
+      .brand{
+        display:flex;
+        align-items:center;
+        gap:.75rem;
+        text-decoration:none;
+        color:#0e2b2e;
+        font-weight:700;
+      }
+      .brand-dot{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:48px;height:48px;border-radius:50%;
+        background: var(--accent);
+        box-shadow:0 8px 30px rgba(179,18,27,0.18);
+        margin-right:10px;
+        font-size:20px; /* size for the icon */
+        border: 2px solid rgba(255,255,255,0.12);
+      }
+      .brand-dot i{ color:#fff; transform:translateY(0); }
+      .brand-name{
+        font-family: "Montserrat", serif;
+        letter-spacing: .03em;
+      }
+      .main-nav ul{
+        list-style:none;
+        margin:0;padding:0;display:flex;gap:1.25rem;
+      }
+      .main-nav a{
+        text-decoration:none;
+        color:var(--accent-2);
+        font-weight:600;
+        transition: color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+        padding: .35rem .6rem;
+        border-radius:999px;
+        display:inline-block;
+        position:relative;
+        background:transparent;
+        box-shadow:none;
+      }
+      .main-nav a:hover,
+      .main-nav a:focus{
+        color:#fff;
+        background: linear-gradient(180deg, rgba(179,18,27,0.98), rgba(179,18,27,0.92));
+        box-shadow: 0 6px 18px rgba(179,18,27,0.10);
+        transform: translateY(-1px);
+        outline: none;
+      }
+      .menu-toggle{
+        display:none;
+        border:0;background:transparent;font-size:1.05rem;color:var(--accent-2);
+      }
+      .hero{
+        padding-top:var(--container-padding);
+        padding-bottom:3.5rem;
+        justify-content: flex-start;
+      }
+      .hero-grid{
+        display:grid;
+        grid-template-columns: 1fr minmax(220px, 360px);
+        gap:2rem;
+        align-items:flex-start;
+      }
+      .hero-left{
+        padding-left: var(--container-padding);
+        max-width:680px;
+      }
+      .welcome{ color:var(--accent); font-weight:600; margin:0 0 .25rem 0; }
+      .name{
+        margin:0;
+        font-weight:700;
+        font-size:4rem;
+        letter-spacing:-0.02em;
+        font-family: "Montserrat", serif;
+        line-height:0.95;
+      }
+      .name .accent{ color:var(--accent); }
+      .lead{ color:var(--muted); max-width:50ch; margin-top:1rem; }
+      .hero-actions{
+        margin-top:1.5rem;
+        display:flex;
+        gap:1rem;
+        align-items:center;
+      }
+      .btn{
+        display:inline-block;padding:.7rem 1.15rem;border-radius:8px;text-decoration:none;font-weight:600;
+        transition:transform var(--transition), box-shadow var(--transition);
+        box-shadow:none;
+      }
+      .btn.primary{
+        background:#0f2f2f;color:#fff;
+      }
+      .btn.primary:hover{ transform:translateY(-4px); box-shadow:var(--shadow) }
+      .social{ display:flex; gap:.5rem; margin-left: .25rem; }
+      .social-icon{
+        width:40px;height:40px;border-radius:50%;display:inline-grid;place-items:center;
+        border:2px solid rgba(15,20,25,0.08); text-decoration:none; color:var(--accent-2); background:#fff;
+        transition:transform var(--transition), box-shadow var(--transition);
+      }
+      .social-icon:hover{ transform:translateY(-4px); box-shadow:var(--shadow) }
+      .profile-card{
+        background:var(--card-bg);
+        border-radius:var(--radius);
+        overflow:hidden;
+        box-shadow:var(--shadow);
+        width:100%;
+        max-width: min(360px, 40vw);
+        margin-left:auto;
+        position:relative;
+        transition:transform var(--transition);
+      }
+      .profile-card:hover{ transform:translateY(-6px) }
+      /* nudge the profile image up slightly to align with header brand */
+      .hero-right .profile-card{ margin-top: -8px; }
+      .profile-photo{
+        display:block;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        aspect-ratio: 3 / 4;
+        vertical-align:middle;
+      }
+      .profile-overlay{
+        position:absolute;
+        left:0;right:0;bottom:0;
+        background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.42) 60%);
+        color:#fff;padding:1rem 1.2rem;
+        display:flex;flex-direction:column;gap:2px;
+      }
+      .profile-name{ font-weight:700; font-size:1.05rem; }
+      .profile-role{ font-size:.85rem; opacity:0.95; }
+      section h2{ font-family: "Montserrat", serif; margin-top:0; color:#153335 }
+      .about{ padding-top:2rem;padding-bottom:2rem; color:var(--muted); }
+      /* About card layout */
+      .about-card{
+        display:grid;
+        grid-template-columns: 1fr minmax(220px, 360px);
+        gap:2rem;
+        align-items:start;
+        background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+        padding:1.6rem;
+        border-radius:12px;
+        box-shadow: 0 8px 30px rgba(20,30,30,0.04);
+        border-left:4px solid var(--accent);
+        transition: transform 220ms ease, box-shadow 300ms ease;
+        will-change: transform, box-shadow;
+      }
+      /* Strengths variant: image .about{ padding-top:2rem;padding-bottom:2rem; color:var(--muted); }on left, content on right */
+      .about-card.about-card--reverse{
+        grid-template-columns: minmax(220px,360px) 1fr;
+      }
+      .about-card.about-card--reverse .about-side{ padding-left:0; padding-right:0.8rem; display:flex; align-items:center; justify-content:center }
+      .about-card.about-card--reverse .about-image{ max-width:220px; width:100%; height:auto }
+      .about-card:hover{
+        box-shadow: 0 20px 50px rgba(20,30,30,0.08), 0 12px 30px rgba(179,18,27,0.06);
+      }
+      .about-content{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        gap:0.5rem;
+        padding: 0 1rem;
+      }
+      .about-content h2{ margin-top:0; font-size:1.9rem; color:#153335 }
+      .about-content p{ color:var(--muted); line-height:1.8; max-width:54ch }
+      .about-side{ display:flex; align-items:center; justify-content:center; padding-left:0.8rem }
+      .about-image{ max-width:220px; width:100%; border-radius:10px; object-fit:cover; height:auto; box-shadow: 0 8px 30px rgba(10,20,20,0.04) }
+      @media (max-width:900px){
+        .about-card{ grid-template-columns:1fr; }
+        .about-side{ padding-left:0 }
+        .about-image{ max-width:100%; height:260px; object-fit:cover }
+      }
+      /* Make the Strengths variant stack like About on small screens */
+      @media (max-width:900px){
+        .about-card.about-card--reverse{ grid-template-columns:1fr; }
+        .about-card.about-card--reverse .about-side{ order:-1; padding:0; display:flex; justify-content:center; }
+        .about-card.about-card--reverse .about-image{ max-width:100%; height:260px; object-fit:cover }
+        .about-card.about-card--reverse .about-content{ text-align:left; padding-top:.75rem }
+      }
+      /* Strengths: same styling but image on left side */
+      #strengths .about-card {
+        grid-template-columns: minmax(220px,360px) 1fr;
+      }
+      #strengths .about-side {
+        padding-left: 0;
+        padding-right: 0.8rem;
+        order: -1;
+      }
+      .journal-section{
+        padding-top:2rem;
+        padding-bottom:3rem;
+        background: linear-gradient(135deg, rgba(31,89,96,0.04) 0%, rgba(179,18,27,0.02) 100%);
+      }
+      /* Experience slider / flashcard styles */
+      .experience-slider{ position:relative; max-width:100%; margin-top:1rem }
+      .experience-slider .slides{ position:relative }
+      .experience-slider .slide{ display:none }
+      .experience-slider .slide.active{ display:block }
+      .experience-slider .journal-entry{ padding:1.25rem; border-radius:12px; background:var(--card-bg); box-shadow:var(--shadow); }
+      .experience-slider .prev, .experience-slider .next{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(15,20,25,0.06); border:0; padding:.75rem 1rem; border-radius:10px; cursor:pointer; z-index:9999; pointer-events:auto; touch-action:manipulation }
+      .experience-slider .prev{ left:8px }
+      .experience-slider .next{ right:8px }
+      .experience-slider .dots{ display:flex; gap:.5rem; justify-content:center; margin-top:.75rem }
+      .experience-slider .dot{ width:10px;height:10px;border-radius:50%;background:rgba(15,20,25,0.08); border:0; cursor:pointer }
+      .experience-slider .dot.active{ background:var(--accent) }
+      @media (max-width:900px){ .experience-slider .journal-entry{ padding:1rem } }
+      /* Certificates grid styles (static framed grid) */
+      .certificates-slider{ position:relative; margin-top:1.25rem; max-width:var(--max-width); margin-left:auto; margin-right:auto; padding:0 1rem; overflow:visible }
+      .certificates-slider .slides{ display:grid; gap:1.6rem; grid-template-columns: repeat(3, 1fr); align-items:stretch; grid-auto-rows: 1fr; }
+      .certificates-slider .slide{ display:block }
+      .certificate-card{ display:flex; flex-direction:column; gap:0.75rem; align-items:flex-start; background:var(--card-bg); padding:1.25rem; border-radius:16px; box-shadow:var(--shadow); width:100%; height:100% }
+      .cert-image{ width:100%; height:220px; object-fit:cover; border-radius:10px; background:#fff; padding:8px; box-shadow: 0 10px 30px rgba(10,20,20,0.06); border:2px solid rgba(255,255,255,0.06); }
+      /* visual frame around certificate image */
+      .cert-image::after{ content:''; display:block; border-radius:6px; }
+      .cert-content{ width:100% }
+      .cert-content h3{ margin:0 0 .35rem 0; font-size:1.15rem; color:#153335 }
+      .cert-content p{ margin:.1rem 0; color:var(--muted); font-size:0.95rem }
+      /* hide carousel controls when using grid */
+      .cert-prev, .cert-next, .cert-dots{ display:none !important }
+      /* hover / focus effects for certificates */
+      .certificates-slider .slide { will-change: transform; }
+      .certificate-card{ position:relative; transition: transform 320ms var(--transition), box-shadow 320ms var(--transition); }
+      .certificate-card::after{ content:''; position:absolute; inset:0; border-radius:14px; pointer-events:none; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04); transition: box-shadow 320ms ease; }
+      .certificate-card:hover, .certificate-card:focus-within{ transform: translateY(-8px) scale(1.01); box-shadow: 0 30px 70px rgba(16,24,32,0.12); }
+      .certificate-card:hover::after{ box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 0 30px rgba(179,18,27,0.06); }
+      .cert-image{ transition: transform 320ms cubic-bezier(.2,.9,.3,1); }
+      .certificate-card:hover .cert-image, .certificate-card:focus-within .cert-image{ transform: scale(1.03) translateZ(0); }
+      .certificate-card:focus-within { outline: 3px solid rgba(31,89,96,0.08); outline-offset:6px; }
+      @media (max-width:1100px){
+        .certificates-slider .slides{ grid-template-columns: repeat(3, 1fr); }
+        .cert-image{ height:200px }
+      }
+      @media (max-width:900px){
+        .certificates-slider .slides{ grid-template-columns: repeat(2, 1fr); }
+        .cert-image{ height:180px }
+      }
+      @media (max-width:700px){
+        .certificates-slider .slides{ grid-template-columns: 1fr; }
+        .cert-image{ height:260px }
+      }
+      .journal-entry{
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow);
+        border-left: 4px solid var(--accent);
+        transition: transform var(--transition);
+      }
+      .journal-entry:hover{
+        transform: translateX(6px);
+      }
+      .journal-entry h3{
+        margin: 0 0 0.5rem 0;
+        font-family: "Montserrat", serif;
+        font-size: 1.2rem;
+        color: #153335;
+      }
+      .journal-date{
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+      .journal-entry p{
+        margin: 0;
+        color: var(--muted);
+        font-family: Poppins, sans-serif;
+        line-height: 1.6;
+      }
+      .journal-image{
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+        margin-bottom: 1rem;
+        object-fit: cover;
+        aspect-ratio: 3/2;
+        display: block;
+      }
+      .site-footer{ padding:2rem 0; color:var(--muted); text-align:center; background:transparent }
+      .skills-section, .experience-section, .gallery-section, .certifications-section{
+        padding-top:2rem;
+        padding-bottom:2rem;
+        color:var(--muted);
+      }
+      .skills-section h2, .experience-section h2, .gallery-section h2, .certifications-section h2{
+        font-family: "Montserrat", serif;
+        margin-top:0;
+        color:#153335;
+      }
+      @media (max-width:980px){
+        .hero-grid{ grid-template-columns:1fr; gap:1.5rem; }
+        .hero-right{ order:-1; display:flex; justify-content:center }
+        .name{ font-size:3rem; text-align:left }
+        .container{ padding:1.25rem }
+        .hero-right .profile-card{ margin-top: 0; }
+      }
+      @media (max-width:700px){
+        .main-nav{ display:none }
+        .menu-toggle{ display:block }
+        .profile-card{ max-width:320px }
+        /* keep the brand name visible on small screens for clarity */
+        .brand-name{ display:inline-block; font-size:0.95rem }
+        .name{ font-size:2.4rem }
+        .lead{ font-size:.95rem }
+      }
+      a:focus, button:focus { outline:3px solid rgba(15,80,80,0.12); outline-offset:3px; border-radius:6px }
+      /* Click-based full-screen sections */
+        /* Standard page scrolling (sections flow naturally). Scrollbar visually hidden. */
+        html, body { overflow: auto; height: auto; scrollbar-width: none; }
+        html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+        main { display: block; }
+        main > section { display: block; overflow: visible; scroll-margin-top: 80px; }
+        .hero { display: block; }
+        .site-footer{ position: relative; }
+      .hero { display: flex; flex-direction: column; justify-content: center; }
+      .site-footer{ position: relative; }
+      .main-nav a.active{
+        color: #fff;
+        background: linear-gradient(180deg, rgba(179,18,27,0.98), rgba(153,14,21,0.95));
+        padding: .32rem .6rem;
+        border-radius:999px;
+        box-shadow: 0 8px 20px rgba(179,18,27,0.12);
+        transform: translateY(-1px);
+      }
+      /* When scrolling down we add this class to visually hide the header */
+      .site-header.header-hidden{ transform: translateY(-110%); box-shadow: none !important }
+      /* Mobile nav: hidden by default, revealed on small screens via menu-toggle */
+        .mobile-nav{ list-style:none; padding:0.5rem 0; display:block; max-height:0; overflow:hidden; opacity:0; transition: max-height 360ms cubic-bezier(.2,.9,.3,1), opacity 220ms ease; }
+        .mobile-nav.open{ opacity:1; max-height: 600px; }
+      .mobile-nav.container{ padding-left:var(--container-padding); padding-right:var(--container-padding); }
+        .mobile-nav ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.5rem }
+      .mobile-nav a{ text-decoration:none; color:var(--accent-2); font-weight:600; display:block; padding:0.5rem 0 }
+      /* Lightbox / modal for certificate preview */
+      .lightbox-overlay{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(5,10,15,0.6); z-index:12000; padding:2rem }
+      .lightbox-overlay.open{ display:flex }
+      .lightbox{ background:transparent; max-width:1100px; width:100%; box-shadow:0 30px 80px rgba(2,6,10,0.6); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; align-items:center }
+      .lightbox img{ width:100%; height:auto; display:block; max-height:80vh; object-fit:contain; background:#fff }
+      .lightbox-caption{ padding:0.85rem 1rem; background:rgba(255,255,255,0.92); width:100%; text-align:left; color:#153335; display:none !important; }
+      .lightbox-close{ position:absolute; right:18px; top:18px; z-index:13000; background:rgba(255,255,255,0.9); border:0; width:44px; height:44px; border-radius:8px; font-size:20px; cursor:pointer; box-shadow:var(--shadow) }
+      /* compact overlay action buttons positioned bottom-left */
+      .certificate-card, .journal-entry{ position:relative }
+      .card-actions{ position:absolute; left:12px; bottom:12px; display:flex; gap:8px; z-index:60 }
+      .card-actions button{ width:28px; height:28px; display:inline-grid; place-items:center; border-radius:8px; border:0; background:rgba(255,255,255,0.95); color:#0f172a; cursor:pointer; box-shadow:var(--shadow); transition: transform 160ms ease }
+      .card-actions button i{ font-size:13px }
+      /* For Experience entries: place actions inline beside the company title */
+      .journal-entry h3{ display:inline-block; margin-right:0.5rem }
+      .journal-entry .card-actions{ position:static; display:inline-flex; gap:6px; margin-left:8px; vertical-align:middle }
+      .journal-entry .card-actions button{ width:24px; height:24px }
+      .journal-entry .card-actions button i{ font-size:12px }
+      .card-actions button:hover{ transform:translateY(-3px) }
+      .card-actions .btn-view{ background: linear-gradient(180deg,#b3121b,#b3121b); color:#fff }
+      .card-actions .btn-link{ background:#111827; color:#fff }
+  </style>
+  <meta name="description" content="Portfolio of Cassiel Flores — student portfolio highlighting projects, journal, and certificates.">
+  </head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="#home">
+        <span class="brand-dot" aria-hidden="true"><i class="fa-solid fa-moon"></i></span>
+        <span class="brand-name">CASSIEL</span>
+      </a>
+
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#Experience" data-slide="0">Experience</a></li>
+          <li><a href="#certificates" data-cert="0">Certificates</a></li>
+          <li><a href="#" id="gallery-link">Gallery</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile navigation (hidden on wide screens) -->
+  <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+    <div class="container">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#Experience" data-slide="0">Experience</a></li>
+        <li><a href="#certificates" data-cert="0">Certificates</a></li>
+        <li><a href="#" id="mobile-gallery-link">Gallery</a></li>
+      </ul>
+    </div>
+  </div>
+  <main>
+    <section id="home" class="hero active">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <p class="welcome">Welcome</p>
+          <h1 class="name"><span class="accent">CASSIEL</span><br />FLORES</h1>
+          <p class="lead">A passionate third-year student from Holy Cross of Davao College, I created this website to preserve memories and cherish meaningful moments throughout the journey.</p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#about">About me</a>
+
+            <div class="social" aria-hidden="false">
+              <a href="https://www.facebook.com/cassielflores.montes.56" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/cassielfloress/" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://github.com/CASSIELFLORES" aria-label="GitHub" class="social-icon"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-right" aria-hidden="false">
+          <div class="profile-card">
+           
+            <img src="pic/3.jpeg" alt="Profile photo" class="profile-photo" />
+            <div class="profile-overlay">
+              <p class="profile-name"> </p>
+              <p class="profile-role"></p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="about container" aria-labelledby="about-heading">
+      <div class="about-card">
+        <div class="about-content">
+          <h2 id="about-heading">About Me</h2>
+          <p>I am Cassiel Balicuat Flores, a 20 year old student pursuing a Bachelor of Science in Information Technology 
+            at Holy Cross of Davao College. This portfolio showcases my passion for documenting personal experiences—such as our 
+            educational tour in Cebu and Bohol—through simple web projects that reflect my learning journey. </p>
+        </div>
+
+        <div class="about-side">
+          <img src="pic/5.jpg" alt="Portrait of Cassiel Flores" class="about-image">
+        </div>
+      </div>
+
+      <div class="about-card about-card--reverse" style="margin-top: 2rem;">
+        <div class="about-side">
+          <img src="pic/2.jpg" alt="Strengths showcase" class="about-image">
+        </div>
+
+        <div class="about-content" style="text-align:center;">
+          <h2>Strengths</h2>
+          <p>My core strengths include creative problem-solving, effective teamwork, and a strong commitment to
+            continuous learning. Although I’m new to website development, I’m highly motivated to grow my skills and eager 
+            to learn while contributing to meaningful projects.</p>
+        </div>
+      </div>
+    </section>
+
+<section id="Experience" class="journal-section container">
+  <h2>Experience</h2>
+  <div class="experience-slider" aria-roledescription="carousel">
+    <div class="slides" aria-live="polite">
+      <div class="slide active">
+           <div class="journal-entry" data-external="https://www.facebook.com/UPCebuinIT/" data-view-src="journal/up.png">
+          <img src="pic/up.jpg" alt="Learning Journey" class="journal-image">
+          <h3>UP IN IT UP Cebu Information Technology Center</h3>
+          <p class="journal-date">November 12, 2025</p>
+          <p>UP in IT Cebu, or the UP Cebu Information Technology Center, is the unit that plans, builds, and maintains the campus' IT environment. It oversees the local area network, internet connectivity, servers, and computer laboratories used for teaching, research, and administration, helping ensure that UP Cebu's academic programs in IT and Computer Science have reliable technical support and infrastructure.</p>
+        </div>
+      </div>
+
+        <div class="slide">
+          <div class="journal-entry" data-external="https://www.dynata.com/" data-view-src="journal/dynata.png">
+          <img src="pic/dynata.jpeg" alt="Learning Journey" class="journal-image">
+          <h3>DYNATA</h3>
+          <p class="journal-date">November 13, 2025</p>
+          <p>Dynata Cebu is the Cebu-based office of Dynata, a global market research and data company that operates large online panels of respondents who answer surveys for brands, agencies, and researchers. The Cebu site mainly serves as an operations and support hub, with teams handling project coordination, survey and data operations, customer support, and account services that feed into Dynata's worldwide insights business.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+            <div class="journal-entry" data-external="" data-view-src="journal/rivant.png">
+          <img src="pic/rivant.jpg" alt="Learning Journey" class="journal-image">
+          <h3>RIVANT IT CEBU</h3>
+          <p class="journal-date">November 13, 2025</p>
+          <p>Rivant IT Cebu is a Philippines-based IT training center that delivers hands-on bootcamps in high-demand technologies such as networking, VoIP, fiber optics, and Linux using real industry equipment. It offers beginner to advanced courses led by experienced instructors, maintains strong certification exam pass rates, and focuses on preparing learners for both local and overseas IT careers.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+          <div class="journal-entry" data-external="https://www.dynata.com/" data-view-src="journal/mata.png">
+          <img src="pic/MATA.jpg" alt="Learning Journey" class="journal-image">
+          <h3>MATA</h3>
+          <p class="journal-date">November 14, 2025</p>
+          <p>MATA in Cebu usually refers to Mata Technologies Inc., a homegrown tech company based in Cebu City that specializes in immersive digital experiences, especially 360° virtual tours and virtual reality maps for real estate and tourism in the Philippines. The company creates VR maps, 3D/360 tours, and 360° photography (indoor, outdoor, aerial) and has partnered with tourism offices and other organizations to showcase destinations and properties online.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+   <div class="journal-entry" data-external="https://www.dynata.com/" data-view-src="journal/tarsier.png">
+          <img src="pic/tarsier.jpeg" alt="Learning Journey" class="journal-image">
+          <h3>T.A.R.S.I.E.R 117</h3>
+          <p class="journal-date">November 15, 2025</p>
+          <p>Tarsier 117 is a security and emergency response unit operating in Cebu, often described as a centralized command center for public safety and disaster response. It typically handles emergency calls, coordinates with police, fire, medical, and rescue teams, and uses CCTV and communication systems to monitor incidents and dispatch responders quickly.</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="prev" aria-label="Previous experience">&#10094;</button>
+    <button class="next" aria-label="Next experience">&#10095;</button>
+
+    <div class="dots" role="tablist" aria-label="Experience slides"></div>
+  </div>
+</section>
+
+
+  <section id="certificates" class="container">
+    <h2>Certificates</h2>
+    
+    <div class="certificates-slider">
+      <div class="slides">
+        <div class="slide active">
+          <div class="certificate-card">
+            <img src="certificates/Appreciation.png" alt="UP IN IT Certificate" class="cert-image">
+            <div class="cert-content">
+              <h3>INSTITUTE of ASEAN- EUROPEAN STUDIES</h3>
+              <p>Certificate of Appreciation</p>
+              <p class="journal-date">September 20, 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="certificate-card">
+            <img src="certificates/BitDegree.png" alt="Dynata Training Certificate" class="cert-image">
+            <div class="cert-content">
+              <h3>BitDegree</h3>
+              <p>Certificate of Appreciation</p>
+              <p class="journal-date">September 20, 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="certificate-card">
+            <img src="certificates/tarsier.png" alt="Rivant IT Certificate" class="cert-image">
+            <div class="cert-content">
+              <h3>Provincial Disaster Risk Reduction and Management Office</h3>
+              <p>Certificate of Appreciation</p>
+              <p class="journal-date">November 15, 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="certificate-card">
+            <img src="certificates/WATTS.jpg" alt="MATA Technologies Certificate" class="cert-image">
+            <div class="cert-content">
+              <h3>World of Adventure and Travel Tours</h3>
+              <p>Certificate of Appreciation</p>
+              <p class="journal-date">November 15, 2024</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="certificate-card">
+            <img src="certificates/HDCD.jpg" alt="Digital Skills Certificate" class="cert-image">
+            <div class="cert-content">
+              <h3>Holy Cross of Davao Collge</h3>
+              <p>Deans List - Third Honor</p>
+              <p class="journal-date">May 27, 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="certificate-card">
+            <img src="certificates/CETSO.jpg" alt="Communication Skills Certificate" class="cert-image">
+            <div class="cert-content">
+              <h3>College of Engineering and Technology</h3>
+              <p>Certificate of Appreciation</p>
+              <p class="journal-date">May 27, 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="prev cert-prev" aria-label="Previous certificate">&#10094;</button>
+      <button class="next cert-next" aria-label="Next certificate">&#10095;</button>
+
+      <div class="cert-dots" role="tablist" aria-label="Certificate slides"></div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Cassiel Flores </p>
+    </div>
+  </footer>
+
+    
+</footer>
+
+  <!-- Lightbox markup for certificate preview -->
+  <div id="lightbox" class="lightbox-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox" role="document">
+      <img src="" alt="" />
+      <div class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
