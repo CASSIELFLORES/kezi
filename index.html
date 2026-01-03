@@ -16,8 +16,10 @@
   <style>
       :root{
         --bg:#f4f5f5;
+        --text:#14202b;
+        --heading:#153335;
         --muted:#6b7376;
-        --accent:#b3121b;
+        --accent:#a30d16;
         --accent-2:#1f5960;
         --card-bg:rgba(255,255,255,0.85);
         --shadow: 0 10px 30px rgba(15,20,25,0.08);
@@ -203,7 +205,7 @@
       }
       .profile-name{ font-weight:700; font-size:1.05rem; }
       .profile-role{ font-size:.85rem; opacity:0.95; }
-      section h2{ font-family: "Montserrat", serif; margin-top:0; color:#153335 }
+      section h2{ font-family: "Montserrat", serif; margin-top:0; color:var(--heading) }
       .about{ padding-top:2rem;padding-bottom:2rem; color:var(--muted); }
       /* About card layout */
       .about-card{
@@ -237,7 +239,7 @@
         gap:0.5rem;
         padding: 0 1rem;
       }
-      .about-content h2{ margin-top:0; font-size:1.9rem; color:#153335 }
+      .about-content h2{ margin-top:0; font-size:1.9rem; color:var(--heading) }
       .about-content p{ color:var(--muted); line-height:1.8; max-width:54ch }
       .about-side{ display:flex; align-items:center; justify-content:center; padding-left:0.8rem }
       .about-image{ max-width:220px; width:100%; border-radius:10px; object-fit:cover; height:auto; box-shadow: 0 8px 30px rgba(10,20,20,0.04) }
@@ -289,7 +291,7 @@
       /* visual frame around certificate image */
       .cert-image::after{ content:''; display:block; border-radius:6px; }
       .cert-content{ width:100% }
-      .cert-content h3{ margin:0 0 .35rem 0; font-size:1.15rem; color:#153335 }
+      .cert-content h3{ margin:0 0 .35rem 0; font-size:1.15rem; color:var(--heading) }
       .cert-content p{ margin:.1rem 0; color:var(--muted); font-size:0.95rem }
       /* hide carousel controls when using grid */
       .cert-prev, .cert-next, .cert-dots{ display:none !important }
@@ -330,7 +332,7 @@
         margin: 0 0 0.5rem 0;
         font-family: "Montserrat", serif;
         font-size: 1.2rem;
-        color: #153335;
+        color: var(--heading);
       }
       .journal-date{
         font-size: 0.85rem;
@@ -362,7 +364,7 @@
       .skills-section h2, .experience-section h2, .gallery-section h2, .certifications-section h2{
         font-family: "Montserrat", serif;
         margin-top:0;
-        color:#153335;
+        color:var(--heading);
       }
       @media (max-width:980px){
         .hero-grid{ grid-template-columns:1fr; gap:1.5rem; }
@@ -412,7 +414,7 @@
       .lightbox-overlay.open{ display:flex }
       .lightbox{ background:transparent; max-width:1100px; width:100%; box-shadow:0 30px 80px rgba(2,6,10,0.6); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; align-items:center }
       .lightbox img{ width:100%; height:auto; display:block; max-height:80vh; object-fit:contain; background:#fff }
-      .lightbox-caption{ padding:0.85rem 1rem; background:rgba(255,255,255,0.92); width:100%; text-align:left; color:#153335; display:none !important; }
+      .lightbox-caption{ padding:0.85rem 1rem; background:rgba(255,255,255,0.92); width:100%; text-align:left; color:var(--heading); display:none !important; }
       .lightbox-close{ position:absolute; right:18px; top:18px; z-index:13000; background:rgba(255,255,255,0.9); border:0; width:44px; height:44px; border-radius:8px; font-size:20px; cursor:pointer; box-shadow:var(--shadow) }
       /* compact overlay action buttons positioned bottom-left */
       .certificate-card, .journal-entry{ position:relative }
@@ -436,7 +438,7 @@
       .contact-section h2{ 
         font-family: "Montserrat", serif; 
         margin-top:0; 
-        color:#153335;
+        color:var(--heading);
         margin-bottom:2rem;
       }
       .contact-grid{
@@ -447,7 +449,7 @@
       }
       .contact-info h3, .contact-form-wrapper h3{
         font-family: "Montserrat", serif;
-        color:#153335;
+        color:var(--heading);
         font-size:1.5rem;
         margin-top:0;
         margin-bottom:1.5rem;
@@ -478,7 +480,7 @@
       .contact-label{
         margin:0;
         font-weight:600;
-        color:#153335;
+        color:var(--heading);
         font-size:0.95rem;
       }
       .contact-item a, .contact-item p{
@@ -498,7 +500,7 @@
       .connect-section h4{
         font-family: "Montserrat", serif;
         margin:0 0 1rem 0;
-        color:#153335;
+        color:var(--heading);
         font-size:1.1rem;
       }
       .social-links{
@@ -541,7 +543,7 @@
       }
       .form-group label{
         font-weight:600;
-        color:#153335;
+        color:var(--heading);
         font-size:0.95rem;
       }
       .form-group input, .form-group textarea{
@@ -610,6 +612,7 @@
           margin-top:1rem;
         }
       }
+      
   </style>
   <meta name="description" content="Portfolio of Cassiel Flores — student portfolio highlighting projects, journal, and certificates.">
   </head>
@@ -655,7 +658,7 @@
         <div class="hero-left">
           <p class="welcome">Welcome</p>
           <h1 class="name"><span class="accent">CASSIEL</span><br />FLORES</h1>
-          <p class="lead">I am a third-year BSIT student passionate about technology, coding, and web design, with a strong focus on creating modern, responsive, and user-friendly websites. I enjoy exploring new ideas, continuously learning, and turning challenges into opportunities to grow while enhancing my front-end development and user experience skills.</p>
+          <p class="lead">I am a third-year BSIT student passionate about technology, coding, and web design, with a strong focus on creating modern, responsive, and user  -friendly websites. I enjoy exploring new ideas, continuously learning, and turning challenges into opportunities to grow while enhancing my front-end development and user experience skills.</p>
 
           <div class="hero-actions">
             <a class="btn primary" href="https://www.canva.com/design/DAG9WuKPxec/LSVcN2AIYwrT5MpDPtoECA/view?utm_content=DAG9WuKPxec&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h42d7753cc4" target="_blank">Curriculum Vitae</a>
@@ -892,7 +895,7 @@
 
           <div class="form-group">
             <label for="email">Your Email</label>
-            <input type="email" id="email" >
+            <input type="email" id="email" name="email" required>
           </div>
 
           <div class="form-group">
@@ -930,34 +933,38 @@
 
   <script src="script.js"></script>
   <script>
-    // Contact form submission (Formspree placeholder)
+    // Contact form submission — POST to local email server
     (function(){
       const form = document.getElementById('contactForm');
       const status = document.getElementById('formStatus');
-      // Replace with your Formspree endpoint: https://formspree.io/f/XXXXXXX
-      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+      const ENDPOINT = 'http://localhost:3000/send-email';
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         status.textContent = 'Sending message...';
-        const data = new FormData(form);
+
+        const payload = {
+          name: form.querySelector('#name')?.value || '',
+          email: form.querySelector('#email')?.value || '',
+          message: form.querySelector('#message')?.value || ''
+        };
 
         try {
-          const res = await fetch(FORMSPREE_ENDPOINT, {
+          const res = await fetch(ENDPOINT, {
             method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
           });
 
-          if (res.ok) {
+          const json = await res.json().catch(()=>null);
+          if (res.ok && json && json.success) {
             status.textContent = 'Message sent — thank you!';
             form.reset();
           } else {
-            const json = await res.json().catch(()=>null);
             status.textContent = (json && json.error) ? json.error : 'Oops — there was a problem sending your message.';
           }
         } catch (err) {
-          status.textContent = 'Network error — try again or email directly.';
+          status.textContent = 'Network error — ensure the local server is running.';
         }
       });
     })();
