@@ -148,6 +148,15 @@
         gap:1rem;
         align-items:center;
       }
+      .hero-about{
+        margin-top:1.5rem;
+        background:var(--card-bg);
+        padding:1rem 1.25rem;
+        border-radius:12px;
+        box-shadow:var(--shadow);
+        border-left:4px solid var(--accent);
+        max-width:640px;
+      }
       .btn{
         display:inline-block;padding:.7rem 1.15rem;border-radius:8px;text-decoration:none;font-weight:600;
         transition:transform var(--transition), box-shadow var(--transition);
@@ -184,7 +193,6 @@
         height:100%;
         object-fit:cover;
         aspect-ratio: 3 / 4;
-        vertical-align:middle;
       }
       .profile-overlay{
         position:absolute;
@@ -419,6 +427,189 @@
       .card-actions button:hover{ transform:translateY(-3px) }
       .card-actions .btn-view{ background: linear-gradient(180deg,#b3121b,#b3121b); color:#fff }
       .card-actions .btn-link{ background:#111827; color:#fff }
+      /* Contact Section Styles */
+      .contact-section{
+        padding-top:3rem;
+        padding-bottom:3rem;
+        background: transparent;
+      }
+      .contact-section h2{ 
+        font-family: "Montserrat", serif; 
+        margin-top:0; 
+        color:#153335;
+        margin-bottom:2rem;
+      }
+      .contact-grid{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:2.5rem;
+        align-items:flex-start;
+      }
+      .contact-info h3, .contact-form-wrapper h3{
+        font-family: "Montserrat", serif;
+        color:#153335;
+        font-size:1.5rem;
+        margin-top:0;
+        margin-bottom:1.5rem;
+      }
+      .contact-item{
+        display:flex;
+        gap:1rem;
+        margin-bottom:1.5rem;
+        align-items:flex-start;
+      }
+      .contact-item i{
+        font-size:1.5rem;
+        color:var(--accent);
+        width:40px;
+        height:40px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:rgba(179,18,27,0.08);
+        border-radius:10px;
+        flex-shrink:0;
+      }
+      .contact-item div{
+        display:flex;
+        flex-direction:column;
+        gap:0.25rem;
+      }
+      .contact-label{
+        margin:0;
+        font-weight:600;
+        color:#153335;
+        font-size:0.95rem;
+      }
+      .contact-item a, .contact-item p{
+        margin:0;
+        color:var(--muted);
+        text-decoration:none;
+        transition:color var(--transition);
+      }
+      .contact-item a:hover{
+        color:var(--accent);
+      }
+      .connect-section{
+        margin-top:2rem;
+        padding-top:2rem;
+        border-top:1px solid rgba(15,20,25,0.08);
+      }
+      .connect-section h4{
+        font-family: "Montserrat", serif;
+        margin:0 0 1rem 0;
+        color:#153335;
+        font-size:1.1rem;
+      }
+      .social-links{
+        display:flex;
+        gap:1rem;
+      }
+      .social-links a{
+        width:40px;
+        height:40px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:8px;
+        background:rgba(31,89,96,0.1);
+        color:var(--accent-2);
+        text-decoration:none;
+        transition:transform var(--transition), background var(--transition), color var(--transition);
+        font-size:1.1rem;
+      }
+      .social-links a:hover{
+        transform:translateY(-3px);
+        background:var(--accent);
+        color:#fff;
+      }
+      .contact-info, .contact-form-wrapper{
+        background:var(--card-bg);
+        padding:1.5rem;
+        border-radius:16px;
+        box-shadow:var(--shadow);
+      }
+      .contact-form{
+        display:flex;
+        flex-direction:column;
+        gap:1.25rem;
+      }
+      .form-group{
+        display:flex;
+        flex-direction:column;
+        gap:0.5rem;
+      }
+      .form-group label{
+        font-weight:600;
+        color:#153335;
+        font-size:0.95rem;
+      }
+      .form-group input, .form-group textarea{
+        padding:0.85rem 1rem;
+        border:2px solid rgba(15,20,25,0.06);
+        border-radius:10px;
+        font-family: Poppins, sans-serif;
+        font-size:0.95rem;
+        color:#14202b;
+        transition:border-color var(--transition), box-shadow var(--transition);
+        background:#fff;
+      }
+      .form-group input:focus, .form-group textarea:focus{
+        outline:none;
+        border-color:var(--accent);
+        box-shadow:0 0 0 3px rgba(179,18,27,0.08);
+      }
+      .form-group textarea{
+        resize:vertical;
+        min-height:120px;
+      }
+      .submit-btn{
+        background:linear-gradient(180deg, #b3121b, #a30d16);
+        color:#fff;
+        border:0;
+        padding:0.9rem 1.5rem;
+        font-size:1rem;
+        cursor:pointer;
+        transition:transform var(--transition), box-shadow var(--transition);
+      }
+      .submit-btn:hover{
+        transform:translateY(-2px);
+        box-shadow:0 10px 30px rgba(179,18,27,0.2);
+      }
+      .submit-btn i{
+        margin-left:0.5rem;
+        font-size:0.9rem;
+      }
+      /* Back-to-top arrow (appears when near bottom/last part) */
+      .scroll-top{
+        position:fixed;
+        right:18px;
+        bottom:18px;
+        width:46px;
+        height:46px;
+        border-radius:50%;
+        display:none;
+        align-items:center;
+        justify-content:center;
+        background:rgba(31,89,96,0.06);
+        color:var(--accent-2);
+        cursor:pointer;
+        z-index:14000;
+        box-shadow:var(--shadow);
+        border:1px solid rgba(15,20,25,0.04);
+      }
+      .scroll-top.show{ display:flex }
+
+      #formStatus{ margin-top:.5rem; font-size:0.95rem; color:var(--muted) }
+      @media (max-width:900px){
+        .contact-grid{
+          grid-template-columns:1fr;
+          gap:2rem;
+        }
+        .contact-form-wrapper{
+          margin-top:1rem;
+        }
+      }
   </style>
   <meta name="description" content="Portfolio of Cassiel Flores — student portfolio highlighting projects, journal, and certificates.">
   </head>
@@ -467,13 +658,9 @@
           <p class="lead">I am a third-year BSIT student passionate about technology, coding, and web design, with a strong focus on creating modern, responsive, and user-friendly websites. I enjoy exploring new ideas, continuously learning, and turning challenges into opportunities to grow while enhancing my front-end development and user experience skills.</p>
 
           <div class="hero-actions">
-            <a class="btn primary" href="https://www.canva.com/design/DAG9WuKPxec/LSVcN2AIYwrT5MpDPtoECA/view?utm_content=DAG9WuKPxec&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h42d7753cc4">Download CV</a>
+            <a class="btn primary" href="https://www.canva.com/design/DAG9WuKPxec/LSVcN2AIYwrT5MpDPtoECA/view?utm_content=DAG9WuKPxec&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h42d7753cc4" target="_blank">Download CV</a>
 
-            <div class="social" aria-hidden="false">
-              <a href="https://www.facebook.com/cassielflores.montes.56" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/cassielfloress/" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://github.com/CASSIELFLORES" aria-label="GitHub" class="social-icon"><i class="fa-brands fa-github"></i></a>
-            </div>
+            
           </div>
         </div>
 
@@ -523,7 +710,7 @@
   <div class="experience-slider" aria-roledescription="carousel">
     <div class="slides" aria-live="polite">
       <div class="slide active">
-           <div class="journal-entry" data-external="https://www.facebook.com/UPCebuinIT/" data-view-src="journal/up.png">
+           <div class="journal-entry" data-external="https://www.facebook.com/UPCebuinIT/" data-view-src="journal/up.png" onclick="window.open(this.getAttribute('data-external'), '_blank')" style="cursor:pointer;">
           <img src="pic/up.jpg" alt="Learning Journey" class="journal-image">
           <h3>UP IN IT UP Cebu Information Technology Center</h3>
           <p class="journal-date">November 12, 2025</p>
@@ -532,7 +719,7 @@
       </div>
 
         <div class="slide">
-          <div class="journal-entry" data-external="https://www.dynata.com/" data-view-src="journal/dynata.png">
+          <div class="journal-entry" data-external="https://www.dynata.com/" data-view-src="journal/dynata.png" onclick="window.open(this.getAttribute('data-external'), '_blank')" style="cursor:pointer;">
           <img src="pic/dynata.jpeg" alt="Learning Journey" class="journal-image">
           <h3>DYNATA</h3>
           <p class="journal-date">November 13, 2025</p>
@@ -541,7 +728,7 @@
       </div>
 
       <div class="slide">
-            <div class="journal-entry" data-external="https://www.facebook.com/rivanitcebu/" data-view-src="journal/rivant.png">
+            <div class="journal-entry" data-external="https://www.facebook.com/rivanitcebu/" data-view-src="journal/rivant.png" onclick="window.open(this.getAttribute('data-external'), '_blank')" style="cursor:pointer;">
           <img src="pic/rivant.jpg" alt="Learning Journey" class="journal-image">
           <h3>RIVANT IT CEBU</h3>
           <p class="journal-date">November 13, 2025</p>
@@ -550,7 +737,7 @@
       </div>
 
       <div class="slide">
-          <div class="journal-entry" data-external="hhttps://mata.tours/" data-view-src="journal/mata.png">
+          <div class="journal-entry" data-external="https://mata.tours/" data-view-src="journal/mata.png" onclick="window.open(this.getAttribute('data-external'), '_blank')" style="cursor:pointer;">
           <img src="pic/MATA.jpg" alt="Learning Journey" class="journal-image">
           <h3>MATA</h3>
           <p class="journal-date">November 14, 2025</p>
@@ -559,7 +746,7 @@
       </div>
 
       <div class="slide">
-   <div class="journal-entry" data-external="hhttps://www.facebook.com/TaRSIER117/" data-view-src="journal/tarsier.png">
+   <div class="journal-entry" data-external="https://www.facebook.com/TaRSIER117/" data-view-src="journal/tarsier.png" onclick="window.open(this.getAttribute('data-external'), '_blank')" style="cursor:pointer;">
           <img src="pic/tarsier.jpeg" alt="Learning Journey" class="journal-image">
           <h3>T.A.R.S.I.E.R 117</h3>
           <p class="journal-date">November 15, 2025</p>
@@ -654,6 +841,74 @@
     </div>
   </section>
 
+  <section id="contact" class="contact-section container">
+    <h2></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <p class="contact-label">Email</p>
+            <a href="mailto:cassiel.flores@hcdc.edu.ph">cassielfloers@hcdc.edu.ph</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <p class="contact-label">Phone</p>
+            <a href="tel:+639505487963">+63 994 377 6196</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <p class="contact-label">Location</p>
+            <p>Country Homes, Davao City</p>
+          </div>
+        </div>
+
+        <div class="connect-section">
+          <h4>Connect With Me</h4>
+          <div class="social-links">
+             <a href="https://www.facebook.com/cassielflores.montes.56" aria-label="Facebook" class="social-icon" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/cassielfloress/" aria-label="Instagram" class="social-icon" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://github.com/CASSIELFLORES" aria-label="GitHub" class="social-icon" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
+            
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <h3>Send a Message</h3>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" >
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" >
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Write your message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn submit-btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+        <div id="formStatus" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <button id="scrollTopBtn" class="scroll-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
   </main>
 
   <footer class="site-footer">
@@ -674,5 +929,60 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    // Contact form submission (Formspree placeholder)
+    (function(){
+      const form = document.getElementById('contactForm');
+      const status = document.getElementById('formStatus');
+      // Replace with your Formspree endpoint: https://formspree.io/f/XXXXXXX
+      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.textContent = 'Sending message...';
+        const data = new FormData(form);
+
+        try {
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            status.textContent = 'Message sent — thank you!';
+            form.reset();
+          } else {
+            const json = await res.json().catch(()=>null);
+            status.textContent = (json && json.error) ? json.error : 'Oops — there was a problem sending your message.';
+          }
+        } catch (err) {
+          status.textContent = 'Network error — try again or email directly.';
+        }
+      });
+    })();
+
+    // Back-to-top arrow: show when near bottom (last part)
+    (function(){
+      const btn = document.getElementById('scrollTopBtn');
+      const showWhenFromBottom = 300; // px from bottom to show
+
+      function checkScroll(){
+        const fromBottom = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
+        if (fromBottom <= showWhenFromBottom) btn.classList.add('show'); else btn.classList.remove('show');
+      }
+
+      btn.addEventListener('click', () => {
+        const home = document.getElementById('home');
+        home.scrollIntoView({ behavior: 'smooth' });
+        btn.classList.remove('show');
+      });
+
+      window.addEventListener('scroll', checkScroll, { passive:true });
+      window.addEventListener('resize', checkScroll);
+      // initial
+      checkScroll();
+    })();
+  </script>
 </body>
 </html>
